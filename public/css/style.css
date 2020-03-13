@@ -1,0 +1,278 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #fff;
+}
+
+.contain {
+    position: relative;
+}
+
+.header {
+    width: 100%;
+    padding-right: 30px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 80px;
+    background: #8C8C8C;
+    position: fixed;
+    top: 0;
+}
+.dropdown {
+    margin-right: 30px;
+}
+
+.dropdown > a {
+    color: #E6E6E6;
+}
+
+.dropdown > a:hover {
+    color: #fff;
+}
+
+.dropdown-item {
+    color: #8C8C8C;
+    text-align: center;
+}
+
+.dropdown-item span {
+    margin-left: 10px;
+}
+
+.dropdown-item:hover {
+    color: #000;
+}
+
+
+.content {
+    width: 80%;
+    margin: 100px auto 0 auto;
+    position: relative;
+    height: 80vh;
+    /*left: 10%;*/
+       overflow: auto;
+}
+
+.sidebar {
+    width: 10%;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+}
+
+ul {
+    list-style: none;
+    padding-top: 90px;
+}
+
+a, a:hover {
+    text-decoration: none;
+}
+
+input[type = 'checkbox'] {
+    display: none;
+}
+
+.label-menu {
+    position: absolute;
+    margin-left: 20px;
+    color: #8C8C8C;
+    background: #fff;
+    cursor: pointer;
+    padding: 12px;
+    border: 1px solid #E6E6E6;
+    top: 17px;
+    left: 50px;
+    border-radius: 3px;
+    z-index: 10;
+    /*transition: .3s;*/
+}
+
+.label-menu:hover {
+    background: #8C8C8C;
+    color: #fff;
+    border: 1px solid #fff;
+}
+
+nav {
+    position: absolute;
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: #E6E6E6;
+    transition: all .5s ease-in-out;
+    z-index: 1;
+}
+
+nav ul li:hover {
+    background: #fff;
+    /*transform: translate(8px);*/
+    /*transition: all 0.3s ease-in-out;*/
+    box-shadow: 8px 4px 8px #8C8C8C;
+}
+
+nav ul li a {
+    /*position: relative;*/
+    color: #8C8C8C;
+    display: block;
+    padding: 15px;
+    margin-bottom: 5px;
+    margin-left: 20px;
+    /*transition: all .3s ease-in-out;*/
+}
+
+nav ul li a:hover {
+    color: #000;
+}
+
+#toggle:checked ~ nav {
+    left: -100%;
+}
+
+.personal-account {
+    width: 70%;
+    margin: 30px auto;
+    display: flex;
+}
+
+.personal-data {
+    width: 50%;
+    margin: 20px auto;
+}
+
+.personal-data h2 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.personal-item {
+    padding: 10px;
+}
+
+.personal-item span {
+    color: #E6E6E6;
+    margin-left: 10px;
+}
+
+hr {
+    border: none;
+    margin-top: 15px;
+    height: 1px;
+    background-color: #E6E6E6;
+}
+
+
+.avatar-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 1px solid #E6E6E6;
+}
+
+.personal-update {
+    width: 80%;
+}
+
+.personal-update  input {
+    width: inherit;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #E6E6E6;
+    border-radius: 3px;
+}
+
+input::placeholder {
+    color: #E6E6E6;
+    padding-left: 10px;
+}
+
+.password-update {
+    width: 30%;
+    margin: 30px auto;
+}
+
+.gender  {
+    margin: 10px 10px;
+}
+
+.birthday > input::placeholder {
+    padding-left: 0;
+    text-align: center;
+}
+
+.birthday > .day {
+    width: 50px;
+    margin-left: 3px;
+}
+
+.birthday > .month {
+    width: 50px;
+}
+
+.birthday > .year {
+    width: 70px;
+}
+
+.customers {
+    width: 70%;
+    margin: 30px auto;
+}
+
+.customers-item {
+    display: flex;
+}
+
+.errors {
+    width: inherit;
+    color: red;
+    margin-left: 20px;
+}
+
+.has-error > input{
+    border: 1px solid red;
+}
+
+.erase {
+    width: 25px;
+    /*cursor: pointer;*/
+}
+
+.btn-delete {
+    border: none;
+    background: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -12,7 +12,7 @@
                     Фамилия
                 </div>
                 <div>
-                    <input type="text" name="last_name">
+                    <input type="text" name="last_name" value="{{ old('last_name') }}">
                 </div>
             </div>
             <div class="customers-item">
@@ -37,8 +37,9 @@
                 </div>
                 <div class="gender">
                     @foreach($gender as $gen)
-                        <input type="radio" name="gender_id" id="{{ $gen->id }}" value="{{ $gen->id }}" }}>
-                        <label for="{{ $gen->id }}">{{ $gen->gender }}</label>
+
+                        <input type="radio" name="gender_id" id="{{ $gen['id'] }}" value="{{ $gen['id'] }}" }}>
+                        <label for="{{ $gen['id'] }}">{{ $gen['gender'] }}</label>
                     @endforeach
                 </div>
             </div>

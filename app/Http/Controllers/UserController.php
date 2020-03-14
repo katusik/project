@@ -27,10 +27,12 @@ class UserController extends Controller
     public function index()
     {
         $user = Auth::user();
+        $account = [];
+        $birthday = '';
+
         if (isset($user->account->id)) {
             $account = Account::find($user->account->id);
             $birthday = date('d-m-Y', strtotime($user->account->birthday));
-
         }
 
         return view('page.account.account', compact('user', 'account', 'birthday'));
@@ -82,6 +84,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $gender = Gender::all();
+        $birthday = '';
 
         if (isset($user->account->id)) {
             $account = Account::find($user->account->id);
@@ -139,7 +142,7 @@ class UserController extends Controller
             ]));
 
         } else {
-            $filename = 'default.jpg';
+            $filename = null;
 
             if ($request->hasFile('avatar')) {
                 $avatar = $request->file('avatar');
@@ -189,12 +192,12 @@ class UserController extends Controller
         if (isset($user->account->avatar)) {
 
             $filename = $user->account->avatar;
-            $avatar = Image::make(public_path('/uploads/avatars/'.$filename));
-            $avatar->destroy();
-            $filename = 'default.jpg';
+//            $avatar = Image::make(public_path('/uploads/avatars/'.$filename));
+//            $avatar->destroy();
+            $filename = null;
             $user->account()->update(['avatar' => $filename]);
         }
-        return redirect()->route('profile.edit');
+        return redirect()->back();
 
 
     }

@@ -22,6 +22,7 @@ class ManageProfileController extends Controller
 
         $user = Auth::user();
         $request->validate([
+            'email' => ['email:rfc,dns'],
             'current_password' => ['required', new MatchOldPassword],
             'new_password' => ['required'],
             'new_confirm_password' => ['same:new_password'],
@@ -29,6 +30,6 @@ class ManageProfileController extends Controller
 
         $user->update(['password'=> Hash::make($request->new_password)]);
 
-        return redirect()->route('profile.edit');
+        return redirect()->route('profile.edit', $user->id);
     }
 }

@@ -255,6 +255,10 @@ input::placeholder {
     background: none;
 }
 
+.active  {
+   background: red;
+}
+
 
 
 

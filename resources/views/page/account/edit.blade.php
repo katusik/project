@@ -27,11 +27,14 @@
                 <div class="personal-update">
                     <label for="name"></label>
                     <input type="text" name="name" value="{{ $user->name ?? ''}}">
+                    @if ($errors->has('name'))
+                        <p class="errors">{{ $errors->first('name') }}</p>
+                    @endif
                 </div>
 
                 <div class="personal-update{{ $errors->has('last_name') ? ' has-error' : '' }}">
                     <label for="last_name"></label>
-                    <input type="text" name="last_name" value="{!! $user->account->last_name ?? '' !!}" placeholder="Фамилия">
+                    <input type="text" name="last_name" value="{!! $user->account->last_name ?? old('last_name') ?? '' !!}" placeholder="Фамилия">
 
                     @if ($errors->has('last_name'))
                         <p class="errors">{{ $errors->first('last_name') }}</p>
@@ -42,7 +45,7 @@
                     <input type="text" name="phone" value="{!! $user->account->phone ?? '' !!}" placeholder="Телефон">
                 </div>
                 <div class="personal-update">
-                    @if (isset($birthday))
+                    @if (isset($birthday) && (int)$birthday)
                         <div class="birthday">
                             <input type="text" name="day" class="day" value="{{ date('d', $birthday) }}">
                             <input type="text" name="month" class="month" value="{{ date('m', $birthday) }}">
@@ -53,9 +56,9 @@
                         @endif
                     @else
                         <div class="birthday">
-                            <input type="text" name="day" class="day" placeholder="дд">
-                            <input type="text" name="month" class="month" placeholder="мм">
-                            <input type="text" name="year" class="year" placeholder="год">
+                            <input type="text" name="day" class="day" placeholder="дд" value="{{ old('day') }}">
+                            <input type="text" name="month" class="month" placeholder="мм" value="{{ old('month') }}">
+                            <input type="text" name="year" class="year" placeholder="год" value="{{ old('year') }}">
                         </div>
                         @if ($errors->has('birthday'))
                             <p class="errors">{{ $errors->first('birthday') }}</p>

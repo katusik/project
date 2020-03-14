@@ -20,6 +20,7 @@
             </thead>
             <tbody>
             @foreach($customers as $customer)
+{{--                {{dd($customer->gender)}}--}}
                 <tr>
                     <td>{{$customer->id}}</td>
                     <td>{{$customer->last_name}} {{ substr($customer->name, 0, 2) }}. {{ substr($customer->patronymic, 0, 2) }}.</td>

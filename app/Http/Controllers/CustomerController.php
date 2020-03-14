@@ -16,7 +16,8 @@ class CustomerController extends Controller
     public function index()
     {
         $customers = Customer::all();
-        return view('page.customer.costumers', compact('customers'));
+        $gender = Gender::all();
+        return view('page.customer.costumers', compact('customers', 'gender'));
     }
 
     /**
@@ -26,7 +27,8 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $gender = Gender::all();
+        $gender = Gender::all()->toArray();
+//        dd($gender);
        return view('page.customer.create', compact('gender'));
     }
 

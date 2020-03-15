@@ -28,7 +28,7 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $account = [];
-        $birthday = '';
+        $birthday = null;
 
         if (isset($user->account->id)) {
             $account = Account::find($user->account->id);
@@ -192,8 +192,8 @@ class UserController extends Controller
         if (isset($user->account->avatar)) {
 
             $filename = $user->account->avatar;
-//            $avatar = Image::make(public_path('/uploads/avatars/'.$filename));
-//            $avatar->destroy();
+            //            $avatar = Image::make(public_path('/uploads/avatars/'.$filename));
+            //            $avatar->destroy();
             $filename = null;
             $user->account()->update(['avatar' => $filename]);
         }

@@ -6,7 +6,7 @@
         <nav>
             <ul>
                 <li><a class="{{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Главная</a></li>
-                <li><a class="{{ request()->routeIs('customers.index') ? 'active' : ''}}" href="{{ route('customers.index') }}">Клиенты</a></li>
+                <li><a class="{{ request()->is('customers*') ? 'active' : ''}}" href="{{ route('customers.index') }}">Клиенты</a></li>
                 <li><a href="#">Заявки</a></li>
                 <li><a href="#">Туры</a></li>
                 <li><a href="#">Админ панель</a></li>

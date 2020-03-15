@@ -16,9 +16,11 @@
 </head>
 <body>
 
+
 <div class="contain">
     <div>
         @include('page.header')
+        @include('page.success')
 
     </div>
     <div>

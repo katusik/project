@@ -38,8 +38,8 @@
                 <div class="gender">
                     @foreach($gender as $gen)
 
-                        <input type="radio" name="gender_id" id="{{ $gen['id'] }}" value="{{ $gen['id'] }}" }}>
-                        <label for="{{ $gen['id'] }}">{{ $gen['gender'] }}</label>
+                        <input type="radio" name="gender_id" id="{{ $gen->id }}" value="{{ $gen->id }}" }}>
+                        <label for="{{ $gen->id }}">{{ $gen->gender }}</label>
                     @endforeach
                 </div>
             </div>
@@ -47,11 +47,11 @@
                 <div>
                     Дата рождения
                 </div>
-{{--                <div class="birthday">--}}
-{{--                    <input type="text" name="day" class="day" placeholder="дд">--}}
-{{--                    <input type="text" name="month" class="month" placeholder="мм">--}}
-{{--                    <input type="text" name="year" class="year" placeholder="год">--}}
-{{--                </div>--}}
+                <div class="birthday">
+                    <input type="text" name="day" class="day" placeholder="дд">
+                    <input type="text" name="month" class="month" placeholder="мм">
+                    <input type="text" name="year" class="year" placeholder="год">
+                </div>
             </div>
             <div class="customers-item">
                 <div>

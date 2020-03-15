@@ -4,7 +4,8 @@
         <div id="time" style="color: white; margin-right: 50px"></div>
 
         <div>
-            <img src="/uploads/avatars/{{ $user->account->avatar ?? 'default.jpg'}}" alt="avatar" style="width: 32px; height: 32px; border-radius: 50%;">
+            <img src="/uploads/avatars/{{ Auth::user()->account->avatar ?? 'default.jpg'}}" alt="avatar" style="width: 32px; height: 32px; border-radius: 50%;">
+{{--            <img src="/uploads/avatars/{{ $user->account->avatar ?? 'default.jpg'}}" alt="avatar" style="width: 32px; height: 32px; border-radius: 50%;">--}}
         </div>
 
         <div class="dropdown">

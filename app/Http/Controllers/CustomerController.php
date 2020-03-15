@@ -27,8 +27,7 @@ class CustomerController extends Controller
      */
     public function create()
     {
-        $gender = Gender::all()->toArray();
-//        dd($gender);
+        $gender = Gender::all();
        return view('page.customer.create', compact('gender'));
     }
 
@@ -40,7 +39,18 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+        if ($request->input('day') && $request->input('month') && $request->input('year')) {
+            $birthday = $request->input('year').'-'.$request->input('month').'-'.$request->input('day');
+            $request->merge([
+                'birthday' => $birthday,
+            ]);
+
+            $this->validate($request, [
+                'birthday' => 'date'
+            ]);
+        }
         $customers = Customer::create($request->all());
+
         return redirect()->route('customers.index');
     }
 

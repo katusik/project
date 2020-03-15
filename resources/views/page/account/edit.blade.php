@@ -31,10 +31,17 @@
                         <p class="errors">{{ $errors->first('name') }}</p>
                     @endif
                 </div>
-
                 <div class="personal-update{{ $errors->has('last_name') ? ' has-error' : '' }}">
                     <label for="last_name"></label>
                     <input type="text" name="last_name" value="{!! $user->account->last_name ?? old('last_name') ?? '' !!}" placeholder="Фамилия">
+
+                    @if ($errors->has('last_name'))
+                        <p class="errors">{{ $errors->first('last_name') }}</p>
+                    @endif
+                </div>
+                <div class="personal-update{{ $errors->has('email') ? ' has-error' : '' }}">
+                    <label for="email"></label>
+                    <input type="text" name="email" value="{!! $user->email ?? old('email') ?? '' !!}" placeholder="Email">
 
                     @if ($errors->has('last_name'))
                         <p class="errors">{{ $errors->first('last_name') }}</p>

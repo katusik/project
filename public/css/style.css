@@ -23,6 +23,7 @@ body {
     position: fixed;
     top: 0;
 }
+
 .dropdown {
     margin-right: 30px;
 }
@@ -55,7 +56,7 @@ body {
     position: relative;
     height: 80vh;
     /*left: 10%;*/
-       overflow: auto;
+    overflow: auto;
 }
 
 .sidebar {
@@ -147,13 +148,9 @@ nav ul li a:hover {
     margin: 20px auto;
 }
 
-.personal-data h2 {
+.personal-data h3 {
     text-align: center;
     margin-bottom: 10px;
-}
-
-.personal-item {
-    padding: 10px;
 }
 
 .personal-item span {
@@ -186,7 +183,7 @@ hr {
     width: 80%;
 }
 
-.personal-update  input {
+.personal-update input {
     width: inherit;
     margin-bottom: 10px;
     padding: 8px;
@@ -204,7 +201,7 @@ input::placeholder {
     margin: 30px auto;
 }
 
-.gender  {
+.gender {
     margin: 10px 10px;
 }
 
@@ -237,12 +234,12 @@ input::placeholder {
 
 .errors {
     width: inherit;
-    color: red;
+    color: #EAA4A4;
     margin-left: 20px;
 }
 
-.has-error > input{
-    border: 1px solid red;
+.has-error > input {
+    border: 1px solid #EAA4A4;
 }
 
 .erase {
@@ -255,9 +252,40 @@ input::placeholder {
     background: none;
 }
 
-.active  {
-   background: red;
+.active {
+    color: #fff;
 }
+
+.success {
+    width: 15%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+table {
+    margin-top: 30px;
+}
+
+.thead {
+    background: #E6E6E6;
+}
+
+.arrow {
+    display: block;
+    margin: 5px auto;
+    border-right: 3px solid #8C8C8C;
+    border-bottom: 3px solid #8C8C8C;
+    height: 10px;
+    width: 10px;
+    transform: rotate(-45deg);
+
+}
+
+
+
+
+
+
 
 
 

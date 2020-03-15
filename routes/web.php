@@ -22,8 +22,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/', 'HomeController@index')->name('home');
     Route::resource('customers', 'CustomerController');
-    Route::get('/manage', 'ManageProfileController@index')->name('manage');
-    Route::post('manage', 'ManageProfileController@update')->name('manageProfile');
+    Route::get('/update-password', 'UpdatePasswordController@index')->name('editPassword');
+    Route::post('update-password', 'UpdatePasswordController@update')->name('updatePassword');
+    Route::get('/update-email', 'UpdateEmailController@index')->name('editEmail');
+    Route::post('update-email', 'UpdateEmailController@index')->name('updateEmail');
     Route::post('destroy/{id}', 'UserController@destroyAvatar')->name('destroyAvatar');
     Route::resource('profile', 'UserController');
 });

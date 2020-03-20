@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CustomerRequest;
 use Illuminate\Http\Request;
 use App\Customer;
 use App\Gender;
+use App\Passport;
+
+use MenaraSolutions\Geographer\Earth;
+use MenaraSolutions\Geographer\Country;
+
 
 class CustomerController extends Controller
 {
@@ -17,6 +23,7 @@ class CustomerController extends Controller
     {
         $customers = Customer::all();
         $gender = Gender::all();
+
         return view('page.customer.costumers', compact('customers', 'gender'));
     }
 
@@ -37,19 +44,21 @@ class CustomerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(CustomerRequest $request)
+
     {
         if ($request->input('day') && $request->input('month') && $request->input('year')) {
             $birthday = $request->input('year').'-'.$request->input('month').'-'.$request->input('day');
             $request->merge([
                 'birthday' => $birthday,
             ]);
-
             $this->validate($request, [
                 'birthday' => 'date'
             ]);
         }
-        $customers = Customer::create($request->all());
+
+        $customer = Customer::create($request->all());
+        $customer->passport()->create($request->all());
 
         return redirect()->route('customers.index');
     }
@@ -62,7 +71,9 @@ class CustomerController extends Controller
      */
     public function show($id)
     {
-        //
+        $customer = Customer::find($id);
+
+        return view('page.customer.customer', compact('customer' ));
     }
 
     /**

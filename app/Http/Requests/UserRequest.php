@@ -24,23 +24,23 @@ class UserRequest extends FormRequest
     public function rules()
     {
         return [
-            'avatar'    => 'mimes:jpg,jpeg,png',
-            'name'      => 'required|string|max:50',
-            'last_name' => 'required|string|max:50',
-            'email'     => 'required|email:rfc,dns',
-            'gender_id' => 'required'
+            'avatar'     => 'mimes:jpg,jpeg,png',
+            'name'       => 'required|string|max:50',
+            'last_name'  => 'required|string|max:50',
+            'email'      => 'required|email:rfc,dns',
+            'gender_id'  => 'required'
         ];
     }
 
     public function messages()
     {
         return [
-            'avatar.mimes'       => 'Тип файла: jpg, jpeg, png',
-            'name.required'      => 'Обязательно к заполнению',
-            'email.required'     => 'Обязательно к заполнению',
-            'email.email'        => 'Введите корректный email',
-            'last_name.required' => 'Обязательно к заполнению',
-            'gender_id.required' => 'Пол не выбран',
+            'avatar.mimes'        => 'Тип файла: jpg, jpeg, png',
+            'name.required'       => 'Обязательно к заполнению',
+            'last_name.required'  => 'Обязательно к заполнению',
+            'email.required'      => 'Обязательно к заполнению',
+            'email.email'         => 'Введите корректный email',
+            'gender_id.required'  => 'Пол не выбран',
         ];
     }
 

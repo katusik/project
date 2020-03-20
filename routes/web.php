@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Route::get('/', function () {
+//   return view('welcome');
+//});
 
 
 Auth::routes();
@@ -21,7 +21,9 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/', 'HomeController@index')->name('home');
+
     Route::resource('customers', 'CustomerController');
+//    Route::get('/update-password', 'UpdatePasswordController@index')->middleware('can:isAdmin')->name('editPassword');
     Route::get('/update-password', 'UpdatePasswordController@index')->name('editPassword');
     Route::post('update-password', 'UpdatePasswordController@update')->name('updatePassword');
     Route::get('/update-email', 'UpdateEmailController@index')->name('editEmail');

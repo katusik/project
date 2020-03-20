@@ -52,7 +52,7 @@ body {
 
 .content {
     width: 80%;
-    margin: 100px auto 0 auto;
+    margin: 80px auto 0 auto;
     position: relative;
     height: 80vh;
     /*left: 10%;*/
@@ -225,12 +225,54 @@ input::placeholder {
 
 .customers {
     width: 70%;
-    margin: 30px auto;
+    margin: 20px auto;
 }
 
 .customers-item {
     display: flex;
 }
+
+.customers-item input {
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #E6E6E6;
+    border-radius: 3px;
+    width: 100%;
+}
+
+.phone {
+    display: flex;
+}
+.phone > div:first-child {
+    padding: 10px 0;
+    width: 30%;
+}
+
+.phone > div:last-child {
+    width: 70%;
+}
+
+.phone input{
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #E6E6E6;
+    border-radius: 3px;
+
+}
+
+.customers-item div:first-child {
+    padding: 10px 0;
+    width: 30%;
+}
+.customers-item div:last-child {
+    width: 70%;
+}
+
+.customers > h4 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
 
 .errors {
     width: inherit;
@@ -241,6 +283,11 @@ input::placeholder {
 .has-error > input {
     border: 1px solid #EAA4A4;
 }
+
+.customers-item .has-error > input::placeholder {
+    color: #EAA4A4;
+}
+
 
 .erase {
     width: 25px;
@@ -253,7 +300,7 @@ input::placeholder {
 }
 
 .active {
-    color: #fff;
+    color: #000;
 }
 
 .success {
@@ -278,8 +325,74 @@ table {
     height: 10px;
     width: 10px;
     transform: rotate(-45deg);
+}
+
+
+
+
+.tabs {
+    position: relative; /* Относительное позиционирование */
+    margin: 0 auto;
+}
+
+.tab, .tab-title {
+    display: inline-block; /* Выстраиваем по горизонтали */
+}
+
+.tab-input {
+    display: none;
 
 }
+
+.tab-title {
+    color: #8C8C8C;
+    padding: 10px; /* Поля вокруг текста */
+    border-bottom: 1px solid #E6E6E6; /* Параметры рамки */
+    cursor: pointer;
+}
+
+.tab-content {
+    position: absolute; /* Абсолютное позиционирование */
+    margin-top: 30px;
+    padding: 15px; /* Поля вокруг текста */
+    left: 0; /* Размещаем у левого края */
+    width: 60%;
+    display: none; /* Прячем вкладку */
+}
+
+.tab :checked + .tab-title {
+    position: relative; /* Относительное позиционирование */
+    background: #fff; /* Цвет фона */
+    color: #000;
+    border: 1px solid #E6E6E6; /* Параметры рамки */
+    border-top: 1px solid #8C8C8C;
+    border-bottom: none;
+    z-index: 1; /* Отображаем поверх содержимого */
+
+}
+
+.tab-title:hover {
+    color: #000;
+}
+
+.tab :checked ~ .tab-content {
+    display: block; /* Показываем активную вкладку */
+}
+
+.tab:last-child {
+    margin-left: -3px;
+}
+
+.customers-item textarea {
+    padding: 8px;
+    border: 1px solid #E6E6E6;
+    border-radius: 3px;
+    width: 100%;
+
+
+}
+
+
 
 
 

@@ -11,4 +11,8 @@ class Customer extends Model
     public function gender() {
         return $this->belongsTo('App\Gender', 'gender_id', 'id');
     }
+
+    public function passport() {
+        return $this->hasOne('App\Passport');
+    }
 }

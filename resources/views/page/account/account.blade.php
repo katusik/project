@@ -26,7 +26,7 @@
             </div>
             <div class="personal-item">
 
-                {!! $birthday ?? '<span>Дата рождения</span>' !!}
+                {!! (isset($user->account->birthday)) ? date('d-m-Y', strtotime($user->account->birthday)) : '<span>Дата рождения</span>' !!}
                 <hr>
             </div>
             <div class="personal-item">

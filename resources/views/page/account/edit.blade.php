@@ -43,8 +43,8 @@
                     <label for="email"></label>
                     <input type="text" name="email" value="{!! $user->email ?? old('email') ?? '' !!}" placeholder="Email">
 
-                    @if ($errors->has('last_name'))
-                        <p class="errors">{{ $errors->first('last_name') }}</p>
+                    @if ($errors->has('email'))
+                        <p class="errors">{{ $errors->first('email') }}</p>
                     @endif
                 </div>
                 <div class="personal-update">
@@ -52,15 +52,16 @@
                     <input type="text" name="phone" value="{!! $user->account->phone ?? '' !!}" placeholder="Телефон">
                 </div>
                 <div class="personal-update">
-                    @if (isset($birthday) && (int)$birthday)
+                    @if (isset($user->account->birthday))
                         <div class="birthday">
-                            <input type="text" name="day" class="day" value="{{ date('d', $birthday) }}">
-                            <input type="text" name="month" class="month" value="{{ date('m', $birthday) }}">
-                            <input type="text" name="year" class="year" value="{{ date('Y', $birthday) }}">
+                            <input type="text" name="day" class="day" value="{!!  date('d', strtotime($user->account->birthday)) ?? '' !!}">
+                            <input type="text" name="month" class="month" value="{!! date('m', strtotime($user->account->birthday)) ?? '' !!}">
+                            <input type="text" name="year" class="year" value="{!! date('Y', strtotime($user->account->birthday)) ?? '' !!}">
                         </div>
                         @if ($errors->has('birthday'))
                             <p class="errors">{{ $errors->first('birthday') }}</p>
                         @endif
+
                     @else
                         <div class="birthday">
                             <input type="text" name="day" class="day" placeholder="дд" value="{{ old('day') }}">
@@ -73,7 +74,7 @@
                     @endif
                 </div>
                 <div class="personal-update">
-                    <div class="gender {{ $errors->has('gender_id') ? ' has-error' : '' }}">
+                    <div class="gender">
                         @foreach($gender as $gen)
                             <input type="radio" name="gender_id" id="{{ $gen->id }}" value="{{ $gen->id }}" {{ $gen->checked ?  'checked' : ''}}>
                             <label for="{{ $gen->id }}">{{ $gen->gender }}</label>

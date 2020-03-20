@@ -12,6 +12,14 @@
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
+    <link rel="stylesheet" href="{{asset('intl-tel-input-16.0.0/build/css/intlTelInput.css')}}">
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+
+
+
     <title>@yield('title')</title>
 </head>
 <body>
@@ -36,6 +44,21 @@
 <script src="{{ asset('js/app.js') }}"></script>
 
 
+<script src="{{asset('intl-tel-input-16.0.0/build/js/intlTelInput.js')}}"></script>
+<script>
+    var input = document.querySelector("#phone");
+    window.intlTelInput(input, {
+        utilsScript:"intl-tel-input-16.0.0/build/js/utils.js",
+        onlyCountries: ["al", "ad", "at", "by", "be", "ba", "bg", "hr", "cz", "dk",
+            "ee", "fo", "fi", "fr", "de", "gi", "gr", "va", "hu", "is", "ie", "it", "lv",
+            "li", "lt", "lu", "mk", "mt", "md", "mc", "me", "nl", "no", "pl", "pt", "ro",
+            "ru", "sm", "rs", "sk", "si", "es", "se", "ch", "ua", "gb"],
+        preferredCountries: ["by", "ua", "ru"],
+        nationalMode: false,
+        autoHideDialCode: false,
+
+    });
+ </script>
 
 </body>
 </html>

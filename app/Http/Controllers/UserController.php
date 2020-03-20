@@ -11,7 +11,6 @@ use App\User;
 use App\Account;
 use App\Http\Requests\UserRequest;
 
-
 use PhpParser\Node\Expr\New_;
 
 use function Composer\Autoload\includeFile;
@@ -28,14 +27,12 @@ class UserController extends Controller
     {
         $user = Auth::user();
         $account = [];
-        $birthday = null;
 
         if (isset($user->account->id)) {
             $account = Account::find($user->account->id);
-            $birthday = date('d-m-Y', strtotime($user->account->birthday));
         }
 
-        return view('page.account.account', compact('user', 'account', 'birthday'));
+        return view('page.account.account', compact('user', 'account'));
     }
 
 
@@ -84,11 +81,8 @@ class UserController extends Controller
     {
         $user = User::find($id);
         $gender = Gender::all();
-        $birthday = '';
-
         if (isset($user->account->id)) {
             $account = Account::find($user->account->id);
-            $birthday = strtotime($user->account->birthday);
             foreach ($gender as $gen) {
                 if ($account->gender_id == $gen->id) {
                     $gen->checked = true;
@@ -96,7 +90,7 @@ class UserController extends Controller
             }
         }
 
-        return view('page.account.edit', compact('user', 'gender', 'birthday'));
+        return view('page.account.edit', compact('user', 'gender'));
     }
 
     /**
@@ -126,6 +120,7 @@ class UserController extends Controller
             if ($request->input('day') && $request->input('month') && $request->input('year')) {
 
                 $birthday = $request->input('year').'-'.$request->input('month').'-'.$request->input('day');
+
                 $request->merge([
                     'birthday' => $birthday,
                 ]);
@@ -153,6 +148,7 @@ class UserController extends Controller
             $request->merge([
                 'birthday' => $birthday,
             ]);
+
 
             $this->validate($request, [
                 'birthday' => 'date'
@@ -190,10 +186,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
         if (isset($user->account->avatar)) {
-
             $filename = $user->account->avatar;
-            //            $avatar = Image::make(public_path('/uploads/avatars/'.$filename));
-            //            $avatar->destroy();
             $filename = null;
             $user->account()->update(['avatar' => $filename]);
         }

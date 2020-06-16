@@ -133,7 +133,8 @@ class UserController extends Controller
             $user->account()->update($request->only([
                 'last_name',
                 'gender_id',
-                'birthday'
+                'birthday',
+                'phone'
             ]));
 
         } else {
@@ -156,12 +157,14 @@ class UserController extends Controller
 
             $last_name = $request->input('last_name');
             $gender = $request->input('gender_id');
+            $phone = $request->input('phone');
 
             $user->account()->create([
                 'avatar'    => $filename,
                 'last_name' => $last_name,
                 'gender_id' => $gender,
-                'birthday'  => $birthday
+                'birthday'  => $birthday,
+                'phone' => $phone
             ]);
         }
 

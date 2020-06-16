@@ -28,10 +28,10 @@ class CustomerRequest extends FormRequest
             'last_name'  => 'required|string|max:50',
             'patronymic' => 'required|string|max:50',
             'gender_id'  => 'required',
+            'birthday'   => 'date',
             'phone'      => 'required|min:10',
-            'series'     => 'required|string|max:50',
-            'issue'      => 'required|string|max:255',
-            'expire'     => 'required'
+            'email'      => 'nullable|email:rfc,dns',
+            'expire'     => 'nullable|date'
 
         ];
     }
@@ -45,7 +45,10 @@ class CustomerRequest extends FormRequest
             'patronymic.required' => 'Обязательно к заполнению',
             'gender_id.required'  => 'Пол не выбран',
             'phone.min'           => 'Обязательное поле',
-            'series.required'     => 'Все поля должны быть заполнены'
+            'email.email'         => 'Введите корректный email',
+            'series.string'       => 'Все поля должны быть заполнены',
+            'expire.date'         => 'Формат даты 01-05-2030',
+            'birthday.date'       => 'Формат даты 01-05-2000'
         ];
     }
 }

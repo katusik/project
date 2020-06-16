@@ -15,4 +15,8 @@ class Customer extends Model
     public function passport() {
         return $this->hasOne('App\Passport');
     }
+
+    public function tour() {
+        return $this->belongsToMany('App\Tour', 'customer_tour', 'customer_id', 'tour_id');
+    }
 }

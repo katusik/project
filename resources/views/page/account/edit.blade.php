@@ -47,9 +47,12 @@
                         <p class="errors">{{ $errors->first('email') }}</p>
                     @endif
                 </div>
-                <div class="personal-update">
-                    <label for="phone"></label>
-                    <input type="text" name="phone" value="{!! $user->account->phone ?? '' !!}" placeholder="Телефон">
+                <div class="phone {{ $errors->has('phone') ? ' has-error' : '' }}" style="margin-left: 3px;">
+                        <input type="tel" id="phone" name="phone" value="{{ $user->account->phone ?? old('phone')}}" >
+                        @if ($errors->has('phone'))
+                            <p class="errors">{{ $errors->first('phone') }}</p>
+                        @endif
+
                 </div>
                 <div class="personal-update">
                     @if (isset($user->account->birthday))
@@ -88,11 +91,13 @@
                 </div>
                 <input type="submit" value="Изменить">
             </form>
+            <p style="text-align: end">
+                <a href="{{ route('profile.index') }}">Назад</a>
+            </p>
         </div>
+
     </div>
-    <p>
-        <a href="{{ route('profile.index') }}">Назад</a>
-    </p>
+
 
 
 
